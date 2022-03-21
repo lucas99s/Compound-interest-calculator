@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Juros</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Juros Compostos</h1>
+    </header>
+    <div class="divisao"></div>
+    <div class="conteiner">
+        <section class="layout">
+            <div class="entradas">
+
+                <label for="valorInicial">Valor inicial</label>
+                <div class="campo">
+                    <div class="prefixo"><b>R$</b></div>
+                    <input type="number" name="valorInicial" id="valorInicial" placeholder= "0.00"/>
+                </div>
+            
+                <label for="investimentoMensal">Investimento mensal</label>
+                <div class="campo">
+                    <div class="prefixo"><b>R$</b></div>
+                    <input type="number" name="investimentoMensal" id="investimentoMensal" placeholder= "0.00"/>
+                </div>
+            
+                <label for="juros">Taxa de juros</label>
+                <div class="campo">
+                    <div class="prefixo"><b>%</b></div>
+                    <input type="number" name="juros" id="juros" placeholder= "0%"/>
+                </div>
+            
+                <label for="meses">Meses</label>
+                <div class="campo">
+                    <div class="prefixo"><b>M</b></div>
+                    <input type="number" name="meses" id="meses" placeholder= "0"/>
+                </div>
+                <button class="calcular" id="entry"><b>CALCULAR</b></button>
+            </div>
+            <div class="resultados">
+                <h2>Resultados</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h4>Valor total</h4>
+                        <div class="valor-resultado"><b id="valorTotal">R$0.00</b></div>
+                    </div>
+                    <div class="card">
+                        <h4>Valor investido</h4>
+                        <div class="valor-resultado"><b id="valorInvestido">R$0.00</b></div>
+                    </div>
+                    <div class="card">
+                        <h4>Juros totais</h4>
+                        <div class="valor-resultado"><b id="jurosTotais">R$0.00</b></div>
+                    </div>
+                </div>
+                <div>
+                    <!-- gráficos -->
+                </div>
+            </div>
+        </section>
+        <section>
+            <table id="display" class="listaResultado">
+                <tr>
+                    <th class="table-th-1">Mês</th>
+                    <th class="table-th-2">Juros do mês</th>
+                    <th class="table-th-3">Juros acumulado</th>
+                    <th class="table-th-4">Total investido</th>
+                    <th class="table-th-5">Total acumulado</th>
+                </tr>
+
+            </table>
+        </section>
+    </div>
+
+</body>
+<footer>
+    <script src="script.js"></script>
+</footer>
+</html>
