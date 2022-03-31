@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cálculo de Juros</title>
     <link rel="stylesheet" href="style.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <header>
@@ -29,7 +29,7 @@
                     <input type="number" name="investimentoMensal" id="investimentoMensal" placeholder= "0.00"/>
                 </div>
             
-                <label for="juros">Taxa de juros</label>
+                <label for="juros">Taxa de juros mensal</label>
                 <div class="campo">
                     <div class="prefixo"><b>%</b></div>
                     <input type="number" name="juros" id="juros" placeholder= "0%"/>
@@ -59,7 +59,10 @@
                     </div>
                 </div>
                 <div>
-                    <!-- gráficos -->
+                    <canvas id="myChart" width="400" height="200"></canvas>
+                    <script>
+
+                    </script>
                 </div>
             </div>
         </section>

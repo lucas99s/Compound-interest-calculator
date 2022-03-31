@@ -1,6 +1,37 @@
 var entry = document.getElementById("entry")
 entry.addEventListener("click", setValues)
 
+let cor1 = 'rgba(0, 223, 45, 1)'
+let cor2 = 'rgba(28, 42, 92,1)'
+let corTransparente1 = 'rgba(0, 223, 45, 0.2)'
+let corTransparente2 = 'rgba(28, 42, 92, 0.2)'
+
+const ctx = document.getElementById('myChart').getContext("2d");
+let myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: meses = ['Meses'],
+        datasets: [{
+            label: 'Acumulo do mês',
+            data: [0],
+            backgroundColor: [
+                corTransparente1
+            ],
+            borderColor: [
+                cor1
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
 function setValues() {
     let q = Number(document.getElementById('valorInicial').value)
     let w = Number(document.getElementById('investimentoMensal').value)
@@ -13,6 +44,7 @@ function setValues() {
 }
 
 function calcular(valorInicial, investimentoMensal, juros, meses, valorTotal, valorInvestido, jurosTotais) {
+
     let acumuloTotal = valorInicial
     let totalInvestido = valorInicial
     let totalJuros = Number()
@@ -47,6 +79,7 @@ function calcular(valorInicial, investimentoMensal, juros, meses, valorTotal, va
     jurosTotais.innerHTML = "R$" + totalJuros.toFixed(2)
 
     lista()
+    grafico(acumuloTotalArr, meses)
     
     function lista() {
         let linha = 1
@@ -70,5 +103,39 @@ function calcular(valorInicial, investimentoMensal, juros, meses, valorTotal, va
 
             linha++
         }
+        
     }
+}
+function grafico(acumuloTotalArr, meses) {
+    let tempo = []
+    for(i = 0; i < meses; i++){
+        tempo[i] = i + 1
+    }
+    myChart.destroy()
+    myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: tempo,
+            datasets: [{
+                label: 'Acumulo do mês',
+                data: acumuloTotalArr,
+                backgroundColor: [
+                    corTransparente1,
+                    corTransparente2
+                ],
+                borderColor: [
+                    cor1,
+                    cor2
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 }
