@@ -53,7 +53,12 @@ function calcular(valorInicial, investimentoMensal, juros, meses, valorTotal, va
     let acumuloTotalArr = []
     let totalInvestidoArr = []
     let dividendoMesArr = []
-    resetTable()
+
+    if(document.getElementById('meses').value == '') {
+        resetTable(false)
+    } else {
+        resetTable(true)
+    }
 
     for(i = 0; i < meses; i++) {
         dividendo = acumuloTotal * juros / 100
@@ -146,7 +151,7 @@ function grafico(acumuloTotalArr, meses) {
 
 document.getElementById('reset').addEventListener('click', function(){
     grafico(0, 0)
-    resetTable()
+    resetTable(false)
     document.getElementById('valorInicial').value = ''
     document.getElementById('investimentoMensal').value = ''
     document.getElementById('juros').value = ''
@@ -156,7 +161,9 @@ document.getElementById('reset').addEventListener('click', function(){
     document.getElementById('jurosTotais').innerText = 'R$0.00'
 })
 
-function resetTable() {
+function resetTable(cond) {
+    let novoCalculo = cond
+
     document.getElementById('display').innerHTML = `
     <tr>
         <th class="table-th-1">Mês</th>
@@ -165,4 +172,16 @@ function resetTable() {
         <th class="table-th-4">Total investido</th>
         <th class="table-th-5">Total acumulado</th>
     </tr>`
+
+    if(novoCalculo == false) {
+        document.getElementById('display').innerHTML += `
+        <tr style="background-color: white;">
+            <td> 0 </td>
+            <td> 0 </td>
+            <td> 0 </td>
+            <td> 0 </td>
+            <td> 0 </td>
+        </tr>
+        `
+    } 
 }

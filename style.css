@@ -53,7 +53,7 @@ header h1 {
 .layout {
     max-width: 100%;
     display: flex;
-    margin-top: 5rem;
+    margin-top: 2rem;
     flex-direction: row;
 }
 
@@ -69,7 +69,7 @@ header h1 {
 
 .entradas input {
     text-align: center;
-    height: 2rem;
+    height: 2.1rem;
     font-size: 1.2rem;
     border: 1px solid var(--input-color);
     width: 85%;
@@ -224,7 +224,6 @@ label {
     border-collapse: collapse;
     font-size: 1.2rem;
     height: 3rem;
-    /* background-color: aliceblue; */
 }
 .listaResultado tr:nth-child(odd) {
     background-color: rgba(24, 24, 24, 0.05);
@@ -313,7 +312,6 @@ label {
 
 @media(max-width: 750px) {
     .layout {
-        margin-top: 2rem;
         flex-direction: column;
     }
     .entradas {
