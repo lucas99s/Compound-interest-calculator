@@ -116,7 +116,7 @@ label {
 }
 
 
-.calcular {
+.botao {
     background-color: var(--cor-primaria);
     border: none;
     color: white;
@@ -128,11 +128,11 @@ label {
     transition: .3s;
 }
 
-.calcular:hover {
+.botao:hover {
     background-color: var(--cor-secundaria);
 }
 
-.calcular:hover b  {
+.botao:hover b  {
     letter-spacing: .2rem;
 }
 
@@ -152,7 +152,7 @@ label {
     width: 20rem;
 } */
 
-.calcular b {
+.botao b {
     z-index: 2;
     position: relative;
     font-size: 1.2rem;

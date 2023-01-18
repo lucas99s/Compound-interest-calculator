@@ -53,6 +53,7 @@ function calcular(valorInicial, investimentoMensal, juros, meses, valorTotal, va
     let acumuloTotalArr = []
     let totalInvestidoArr = []
     let dividendoMesArr = []
+    resetTable()
 
     for(i = 0; i < meses; i++) {
         dividendo = acumuloTotal * juros / 100
@@ -80,7 +81,7 @@ function calcular(valorInicial, investimentoMensal, juros, meses, valorTotal, va
 
     lista()
     grafico(acumuloTotalArr, meses)
-    
+
     function lista() {
         let linha = 1
     
@@ -111,6 +112,9 @@ function grafico(acumuloTotalArr, meses) {
     for(i = 0; i < meses; i++){
         tempo[i] = i + 1
     }
+    if(tempo.length == 0) {
+        tempo[0] = 'Meses'
+    }
     myChart.destroy()
     myChart = new Chart(ctx, {
         type: 'bar',
@@ -138,4 +142,27 @@ function grafico(acumuloTotalArr, meses) {
             }
         }
     });
+}
+
+document.getElementById('reset').addEventListener('click', function(){
+    grafico(0, 0)
+    resetTable()
+    document.getElementById('valorInicial').value = ''
+    document.getElementById('investimentoMensal').value = ''
+    document.getElementById('juros').value = ''
+    document.getElementById('meses').value = ''
+    document.getElementById('valorTotal').innerText = 'R$0.00'
+    document.getElementById('valorInvestido').innerText = 'R$0.00'
+    document.getElementById('jurosTotais').innerText = 'R$0.00'
+})
+
+function resetTable() {
+    document.getElementById('display').innerHTML = `
+    <tr>
+        <th class="table-th-1">Mês</th>
+        <th class="table-th-2">Juros do mês</th>
+        <th class="table-th-3">Juros acumulado</th>
+        <th class="table-th-4">Total investido</th>
+        <th class="table-th-5">Total acumulado</th>
+    </tr>`
 }
