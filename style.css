@@ -69,7 +69,7 @@ header h1 {
 
 .entradas input {
     text-align: center;
-    height: 2.1rem;
+    height: 2.5rem;
     font-size: 1.2rem;
     border: 1px solid var(--input-color);
     width: 85%;
@@ -106,14 +106,14 @@ label {
     width: 15%;
     text-align: center;
     background-color: var(--input-color);
-    height: 2.1rem;
+    height: 2.5rem;
     border-top-left-radius: var(--radious-1);
     border-bottom-left-radius: var(--radious-1);
 }
 
 .prefixo b {
     position: relative;
-    top: .3rem;
+    top: .5rem;
     font-weight: 400;
 }
 
@@ -297,16 +297,14 @@ label {
 }
 
 @media(max-width: 850px) {
-    .entradas {
-        width: 50%;
+
+    .cards {
+        flex-direction: column;
     }
 
-    .resultados {
-        width: 47%;
-    }
-    
-    *{
-        font-size: 10px;
+    .card {
+        width: 100%;
+        margin-bottom: 1rem
     }
 }
 
@@ -321,6 +319,29 @@ label {
         width: 100%;
         margin-top: 2rem;
         margin-left: 0;
+    }
+
+    .cards {
+        flex-direction: row;
+    }
+
+    .card {
+        width: 30%;
+        margin-bottom: 0;
+    }
+}
+
+@media(max-width: 550px) {
+    .cards {
+        flex-direction: column;
+    }
+    .card {
+        width: 100%;
+        margin-bottom: 1rem
+    }
+
+    th {
+        font-size: 12px !important;
     }
 }
 
